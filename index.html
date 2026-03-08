@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sinwin Донат</title>
 <style>
-  /* Фон Minecraft */
   body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: url('https://i.ibb.co/6v5s7Tx/minecraft-bg.jpg') no-repeat center center fixed;
+    background: url('https://cdn.pixabay.com/illustrations/minecraft-shaders-beautiful-6917341.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #f0f0f0;
   }
@@ -24,10 +23,7 @@
     font-weight: bold;
     transition: 0.3s;
   }
-  button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #ffd700;
-  }
+  button:hover { transform: scale(1.05); box-shadow: 0 0 15px #ffd700; }
 
   header {
     height: 100vh;
@@ -50,16 +46,15 @@
   section {
     padding: 60px 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     background: rgba(0,0,0,0.5);
     border-radius: 12px;
-    margin-bottom: 40px;
   }
   section h2 {
     font-size: 2.5em;
-    margin-bottom: 30px;
     text-align: center;
     color: #ffcc00;
+    margin-bottom: 30px;
   }
 
   .cards {
@@ -78,7 +73,6 @@
   .card h3 { margin: 10px 0; }
   .card p { margin: 5px 0; font-weight: bold; color: #ffd700; }
 
-  /* Модальное окно */
   .modal {
     display: none;
     position: fixed;
@@ -178,25 +172,17 @@
 <script>
   let currentItem = '';
   let currentPrice = 0;
-
   function openModal(item, price) {
-    currentItem = item;
-    currentPrice = price;
+    currentItem = item; currentPrice = price;
     document.getElementById('modalItem').innerText = `Покупка: ${item}`;
     document.getElementById('modalPrice').innerText = `Сумма: ${price}₽`;
-    document.getElementById('nickname').value = '';
-    document.getElementById('promo').value = '';
     document.getElementById('buyModal').style.display = 'flex';
   }
-
-  function closeModal() {
-    document.getElementById('buyModal').style.display = 'none';
-  }
-
+  function closeModal() { document.getElementById('buyModal').style.display = 'none'; }
   function confirmPurchase() {
-    const nickname = document.getElementById('nickname').value || 'Не указан';
+    const name = document.getElementById('nickname').value || 'Не указан';
     const promo = document.getElementById('promo').value || 'Не указан';
-    alert(`Никнейм: ${nickname}\nТовар: ${currentItem}\nСумма: ${currentPrice}₽\nПромокод: ${promo}\nСпасибо за покупку!`);
+    alert(`Никнейм: ${name}\nТовар: ${currentItem}\nСумма: ${currentPrice}₽\nПромокод: ${promo}\nСпасибо!`);
     closeModal();
   }
 </script>
